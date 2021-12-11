@@ -20,14 +20,14 @@ pip3 install -r requirements.txt
 
 
 
-#### TODO:
+If you find any bugs or crashes, please open a ticket and join the relevant logs.
 
-- Add mail client for warning if a attendance submission fails
-- Add a way to bypass in case I'm not attending a class on purpose (and cleanly storage this info)
+Don't hesitate to add tickets for enhancements too!
 
-- Intelligently cron at midnight and recall the script only during class hour (and cleanly storage the time)
 
-#### DISCLAIMER:
+
+#### DISCLAIMER: 
+
 **EN**
 I am not responsible for the misuse of this script, it isn't in any case a tool to be used to commit attendance fraud. If you are in my school, check the 8.2 section of our Internal Rules for more informations on attendance fraud.
 
