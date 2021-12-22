@@ -150,10 +150,14 @@ def login(session):
     SAMLResponse = re.findall(r"(name=\"SAMLResponse\" value=\")(.*)(\" /><input)",res.text)[0][1]
     res = session.get(lssop_endpoint_2)
     m = session.post("https://www.leonard-de-vinci.net/include/SAML/module.php/saml/sp/saml2-acs.php/devinci-sp", data = {"SAMLResponse": SAMLResponse})
-    if login_status(session):
-        logger.success("Logged in as "+user)
+    if session:
+        if login_status(session):
+            logger.success("Logged in as "+user)
+        else:
+            logger.critical("Error while logging in!")
     else:
-         logger.error("Error while logging in!")
+        logger.critical("Host seem down!")
+        exit()
 
     return session
 
@@ -197,7 +201,7 @@ def main():
                     if res.status_code==200:
                         logger.success("You're logged in!")
                     else:
-                        logger.error("Uhoh, there was an error setting your presence")
+                        logger.critical("Uhoh, there was an error setting your presence, please open a ticket with your logs")
                         print(res.status_code,res.text)
 
 if __name__ == "__main__":
