@@ -118,13 +118,17 @@ class Course():
 @logger.catch
 def login_status(session):
     res=session.get("https://www.leonard-de-vinci.net")
-    if "Mot de passe" in res.text:
-        return False
-    elif "Mon compte" in res.text:
-        return True
+    if res:
+        if "Mot de passe" in res.text:
+            return False
+        elif "Mon compte" in res.text:
+            return True
+        else:
+            logger.critical("ERROR in login status")
+            exit(1)
     else:
-        logger.critical("ERROR in login status")
-        return None
+        logger.critical("Portal unreachable")
+        exit(1)
 
 
 @logger.catch
