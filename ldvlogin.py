@@ -18,7 +18,7 @@ donnera plus d'information sur la fraude à l'appel en ligne.
 
 USAGE:
 1. Install the requirements with pip3 install -r requirements.txt
-2. Add user, password and script path in the crontab and just under this comments
+2. Add user, password and script path in the crontab and export in PATH
 3. Change and add the following line in your crontab for checks every 5 minutes:
 ($ crontab -e)
 */5 8-20 * * 1-6 /usr/bin/python3 /path/to/your/ldvlogin.py
@@ -27,8 +27,8 @@ USAGE:
 import os
 import sys
 
-user = "clovis.carlier@edu.devinci.fr"  # TO CHANGE
-passwd = "sV3fn33MC3TyjyatKnK2"  # TO CHANGE
+user = os.environ['LDV_email']
+passwd = os.environ['LDV_password']
 logfile = "./.ldvlogs/ldvlogs.log"
 
 if not os.path.exists("./.ldvlogs"):
