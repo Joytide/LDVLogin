@@ -27,8 +27,8 @@ USAGE:
 import os
 import sys
 
-user = os.environ['LDV_email']
-passwd = os.environ['LDV_password']
+user = os.environ["LDV_email"]
+passwd = os.environ["LDV_password"]
 logfile = "./.ldvlogs/ldvlogs.log"
 
 if not os.path.exists("./.ldvlogs"):
@@ -262,8 +262,11 @@ def main():
                     if res.status_code == 200:
                         logger.success("You're logged in!")
                     else:
-                        logger.critical("Uhoh, there was an error setting your presence, please open a ticket with your logs")
-                        print(res.status_code,res.text)
+                        logger.critical(
+                            "Uhoh, there was an error setting your presence, please open a ticket with your logs"
+                        )
+                        print(res.status_code, res.text)
+
 
 if __name__ == "__main__":
     main()
