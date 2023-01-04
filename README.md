@@ -4,7 +4,38 @@ Just a little script to automate the logging process as well as the validation o
 
 
 
-#### Usage
+#### Deploy
+
+- Install [docker and docker compose](https://docs.docker.com/desktop/install/ubuntu/)
+
+- Run:
+
+```bash
+git clone git@github.com:Joytide/LDVLogin.git
+cd LDVLogin
+cp config.example.py config.py
+vim config.py # Add your email and password here
+docker compose up --build
+```
+
+- Add the following line in your crontab:
+
+``` */5 8-20 * * 1-5 cd /path/to/your/LDVLogin/ ; docker compose up```
+
+
+
+And you're all set!
+
+
+
+### Development
+
+- Install
+
+```bash
+git clone git@github.com:Joytide/LDVLogin.git
+cd LDVLogin
+```
 
 - Install the requirements with:
 
