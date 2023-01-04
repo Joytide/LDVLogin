@@ -54,15 +54,15 @@ def main():
 
     logger.debug("Headless Firefox Initialized")
     # driver.quit()
-
+    logger.debug(f"Trying to login with {email}")
     driver.find_element(By.NAME, "login").send_keys(email)
     driver.find_element(By.ID, "btn_next").click()
     time.sleep(2)
-
+    logger.debug("Inputing password...")
     driver.find_element(By.NAME, "Password").send_keys(password)
     driver.find_element(By.ID, "submitButton").click()
     time.sleep(2)
-
+    logger.success("Logged in!")
     driver.get("https://www.leonard-de-vinci.net/student/presences/")
     time.sleep(2)
 
