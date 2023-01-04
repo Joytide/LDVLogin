@@ -87,6 +87,7 @@ def main():
         logger.success("No courses require presence at the moment!")
     else:
         logger.success("No classes today!")
+    exit()
 
 
 
