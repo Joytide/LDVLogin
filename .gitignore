@@ -1,3 +1,6 @@
 *.log
 *.save
 *2.py
+config.py
+venv
+__pycache__
