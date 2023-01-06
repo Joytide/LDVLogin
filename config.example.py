@@ -1,2 +1,1 @@
-email = "@edu.devinci.fr"
-password = ""
+config = {"mail@edu.devinci.fr":"password"}

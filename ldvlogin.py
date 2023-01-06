@@ -38,13 +38,13 @@ except Exception as e:
     exit(0)
 
 try:
-    from config import email,password
+    from config import config
 except Exception as e:
     logger.critical("Couldn't load configuration, have you filled up the ./config.py ?")
     raise e
 
 @logger.catch
-def main():
+def main(email, password):
     options = Options()
     options.headless = True
 
@@ -80,16 +80,18 @@ def main():
                     if presence_btn:
                         presence_btn.click()
                         logger.success("Clicked on button!")
-                        exit()
+                        return None
                 except Exception as e:
-                    logger.success("No presence button found: presence already set!")
-                    exit()
+                    logger.success("No presence button found: presence already set or presence is not open!")
+                    return None
         logger.success("No courses require presence at the moment!")
     else:
         logger.success("No classes today!")
-    exit()
+    
 
 
 
 if __name__ == "__main__":
-    main()
+    for email,password in config.items():
+        main(email,password)
+    exit()
