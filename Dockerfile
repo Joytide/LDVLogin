@@ -9,7 +9,7 @@ ENV FIREFOX_VER 108.0
 RUN set -x \
    && apt update \
    && apt upgrade -y \
-   && apt install -y firefox-esr
+   && apt install -y firefox-esr cron
 RUN pip install loguru selenium
 # Works with loguru==0.6.0 selenium==4.7.2 with latest as of 01/2023
 
@@ -33,4 +33,5 @@ RUN set -x \
 
 COPY . /app
 WORKDIR /app
-CMD ["python3","-u","ldvlogin.py"]
+RUN crontab cronjob
+CMD ["cron", "-f"]
