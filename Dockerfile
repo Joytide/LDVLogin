@@ -33,5 +33,5 @@ RUN set -x \
 
 COPY . /app
 WORKDIR /app
-RUN crontab cronjob
-CMD ["cron", "-f"]
+RUN crontab -l | { cat; echo "*/5 8-20 * * 1-5 python3 /app/ldvlogin.py"; } | crontab -
+CMD cron
