@@ -20,7 +20,7 @@ docker compose up --build
 
 - Add the following line in your crontab:
 
-``` */5 8-20 * * 1-5 cd /path/to/your/LDVLogin/ ; docker compose up```
+``` */5 8-20 * * 1-5 cd /path/to/your/LDVLogin/ ; docker compose up --build -d```
 
 
 
